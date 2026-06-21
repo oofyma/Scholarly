@@ -37,12 +37,6 @@ nav a:hover {
   color: white;
 }
 
-.nav-user {
-  color: white;
-  font-size: 14px;
-  margin-left: 20px;
-}
-
 /* HOME */
 .hero {
   background: #2c3e7a;
@@ -148,10 +142,28 @@ input:focus, select:focus, textarea:focus {
   font-size: 14px;
   cursor: pointer;
   color: #555;
+  margin-top: 6px;
 }
 
 .cancel-btn:hover {
   background: #f0f0f0;
+}
+
+.danger-btn {
+  width: 100%;
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.danger-btn:hover {
+  background: #b91c1c;
 }
 
 .divider-text {
@@ -228,7 +240,6 @@ input:focus, select:focus, textarea:focus {
   margin-bottom: 20px;
 }
 
-/* RATE INPUT WITH $ AND /hr */
 .input-prefix-wrap {
   display: flex;
   align-items: center;
@@ -275,6 +286,7 @@ input:focus, select:focus, textarea:focus {
   display: flex;
   align-items: flex-start;
   gap: 16px;
+  cursor: pointer;
 }
 
 .tutor-card:hover {
@@ -313,26 +325,18 @@ input:focus, select:focus, textarea:focus {
 .tutor-info h3 {
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 
-.subj {
+.tutor-field {
   font-size: 13px;
   color: #555;
   margin-bottom: 4px;
 }
 
-.meta {
-  font-size: 12px;
-  color: #999;
-  margin-bottom: 8px;
-}
-
-.tutor-about {
-  font-size: 13px;
-  color: #666;
-  max-width: 560px;
-  line-height: 1.5;
+.field-label {
+  font-weight: 600;
+  color: #333;
 }
 
 .tutor-right {
@@ -353,8 +357,177 @@ input:focus, select:focus, textarea:focus {
   color: #888;
 }
 
+.view-profile-link {
+  font-size: 12px;
+  color: #2c3e7a;
+  margin-top: 8px;
+}
+
 .empty-state {
   text-align: center;
   padding: 80px 24px;
   color: #aaa;
+}
+
+/* PROFILE PAGE */
+.profile-wrap {
+  max-width: 860px;
+  margin: 32px auto;
+  padding: 0 24px 60px;
+}
+
+.back-link {
+  display: inline-block;
+  font-size: 13px;
+  color: #2c3e7a;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.profile-top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.profile-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.profile-placeholder {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #2c3e7a;
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profile-top-info h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.profile-subjects {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.profile-rate {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2c3e7a;
+}
+
+.profile-rate small {
+  font-size: 13px;
+  font-weight: 400;
+  color: #888;
+}
+
+.profile-details-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.profile-detail-item {
+  font-size: 14px;
+  color: #555;
+  min-width: 200px;
+  flex: 1;
+}
+
+.profile-about {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.profile-about h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.profile-about p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.75;
+}
+
+/* ACCOUNT PAGE */
+.account-wrap {
+  max-width: 500px;
+  margin: 48px auto;
+  padding: 0 24px;
+}
+
+.account-wrap h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.account-section {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.account-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.danger-section {
+  background: white;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+  padding: 28px;
+}
+
+.danger-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #dc2626;
+  margin-bottom: 8px;
+}
+
+.danger-section p {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 16px;
 }

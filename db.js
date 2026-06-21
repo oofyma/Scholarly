@@ -39,9 +39,31 @@ async function dbSignIn(email, password) {
   if (error || !data || data.length === 0) return { success: false, error: 'Incorrect email or password.' };
 
   const user = data[0];
-  console.log('user from db:', user);
   currentUser = { id: user.user_id, name: user.name, email: user.email };
   sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+  return { success: true };
+}
+
+async function dbUpdateUser(userId, updates) {
+  const { error } = await db
+    .from('users')
+    .update(updates)
+    .eq('user_id', userId);
+
+  if (error) return { success: false, error: error.message };
+
+  // Update session
+  currentUser = { ...currentUser, ...updates };
+  sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+  return { success: true };
+}
+
+async function dbDeleteUser(userId) {
+  // Delete tutor profile first if exists
+  await db.from('tutors').delete().eq('user_id', userId);
+  // Delete user
+  const { error } = await db.from('users').delete().eq('user_id', userId);
+  if (error) return { success: false, error: error.message };
   return { success: true };
 }
 
@@ -87,6 +109,26 @@ async function dbAddTutor(profile) {
   return { success: true };
 }
 
+async function dbUpdateTutor(userId, updates) {
+  const { error } = await db
+    .from('tutors')
+    .update(updates)
+    .eq('user_id', userId);
+
+  if (error) return { success: false, error: error.message };
+  return { success: true };
+}
+
+async function dbDeleteTutor(userId) {
+  const { error } = await db
+    .from('tutors')
+    .delete()
+    .eq('user_id', userId);
+
+  if (error) return { success: false, error: error.message };
+  return { success: true };
+}
+
 async function dbGetTutors() {
   const { data, error } = await db
     .from('tutors')
@@ -94,6 +136,16 @@ async function dbGetTutors() {
 
   if (error) return [];
   return data;
+}
+
+async function dbGetTutorById(tutorId) {
+  const { data, error } = await db
+    .from('tutors')
+    .select('*')
+    .eq('tutor_id', tutorId);
+
+  if (error || !data || data.length === 0) return null;
+  return data[0];
 }
 
 async function dbGetMyTutorProfile(userId) {

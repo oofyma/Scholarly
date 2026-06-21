@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Catalogue</title>
+  <title>Catalogue — Tutorial</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
 <nav>
-  <div class="logo">Scholarly</div>
+  <div class="logo">Tutorial</div>
   <div id="nav-links">
     <a href="index.html">Home</a>
     <a href="signin.html">Sign in</a>
@@ -28,14 +28,17 @@
 </div>
 
 <div class="tutor-form-wrap" id="tutor-form" style="display:none">
-  <h3>Register as a tutor</h3>
-  <p>Fill in your details to advertise your services on Scholarly.</p>
+  <h3 id="tutor-form-title">Register as a tutor</h3>
+  <p>Fill in your details to advertise your services on Tutorial.</p>
 
   <label>Full name</label>
   <input type="text" id="t-name">
 
   <label>Subjects (e.g. Maths, English)</label>
   <input type="text" id="t-subjects">
+
+  <label>Target students (e.g. Years 9–12, Primary school, Adult learners)</label>
+  <input type="text" id="t-target" placeholder="e.g. Years 9–12, HSC students">
 
   <label>Hourly rate (AUD per hour)</label>
   <div class="input-prefix-wrap">
@@ -51,18 +54,24 @@
   <select id="t-format">
     <option value="Online">Online</option>
     <option value="In-person">In-person</option>
-    <option value="Both">Both</option>
+    <option value="Both online and in person">Both online and in person</option>
   </select>
 
-  <label>About you</label>
-  <textarea id="t-about" rows="4" placeholder="Describe your experience, teaching style, and what you offer..."></textarea>
+  <label>Availability (e.g. Weekday evenings, weekends)</label>
+  <input type="text" id="t-availability" placeholder="e.g. Mon–Fri after 4pm, weekends">
+
+  <label>Contact details</label>
+  <input type="text" id="t-contact" placeholder="e.g. john@email.com or 0412 345 678">
+
+  <label>About me</label>
+  <textarea id="t-about" rows="4" placeholder="Describe your expertise, qualifications, teaching style, and what you offer..."></textarea>
 
   <label>Profile picture or logo (optional)</label>
   <input type="file" id="t-avatar" accept="image/*">
 
   <div id="tutor-error" style="color:red; font-size:13px; margin-bottom:10px; display:none;"></div>
 
-  <button class="signin-btn" onclick="submitTutorProfile()">Submit profile</button>
+  <button class="signin-btn" id="tutor-submit-btn" onclick="submitTutorProfile()">Submit profile</button>
   <button class="cancel-btn" onclick="toggleTutorForm()">Cancel</button>
 </div>
 

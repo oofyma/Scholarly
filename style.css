@@ -1,4 +1,8 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: sans-serif;
@@ -16,7 +20,7 @@ nav {
 }
 
 nav .logo {
-  color: #fff;
+  color: white;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -29,52 +33,93 @@ nav a {
   text-decoration: none;
 }
 
-nav a:hover { color: #fff; }
+nav a:hover {
+  color: white;
+}
 
-/* HERO */
+.nav-user {
+  color: white;
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+/* HOME */
 .hero {
   background: #2c3e7a;
-  color: #fff;
+  color: white;
   padding: 80px 24px;
   text-align: center;
 }
 
-.hero h1 { font-size: 32px; margin-bottom: 12px; }
-.hero p { font-size: 16px; color: #aac; margin-bottom: 28px; }
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 16px;
+  color: #aac;
+  margin-bottom: 28px;
+}
 
 .hero-btn {
   display: inline-block;
-  background: #fff;
+  background: white;
   color: #2c3e7a;
   padding: 12px 28px;
   border-radius: 6px;
   font-weight: 600;
+  font-size: 15px;
   text-decoration: none;
+}
+
+.hero-btn:hover {
+  background: #e8ecff;
 }
 
 /* SIGN IN */
 .signin-wrap {
   max-width: 400px;
   margin: 60px auto;
-  background: #fff;
+  background: white;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 36px;
 }
 
+.signin-wrap h2 {
+  font-size: 22px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.signin-wrap p {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 24px;
+}
+
 label {
   display: block;
   font-size: 13px;
+  font-weight: 500;
   margin-bottom: 5px;
   color: #444;
 }
 
-input {
+input, select, textarea {
   width: 100%;
   padding: 9px 12px;
   margin-bottom: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid #2c3e7a;
+  border-color: #2c3e7a;
 }
 
 .signin-btn {
@@ -84,6 +129,44 @@ input {
   border: none;
   padding: 11px;
   border-radius: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.signin-btn:hover {
+  background: #243268;
+}
+
+.cancel-btn {
+  width: 100%;
+  background: none;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #555;
+}
+
+.cancel-btn:hover {
+  background: #f0f0f0;
+}
+
+.divider-text {
+  text-align: center;
+  font-size: 13px;
+  color: #999;
+  margin: 14px 0;
+}
+
+.toggle-link {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: #2c3e7a;
+  cursor: pointer;
 }
 
 /* CATALOGUE */
@@ -91,6 +174,183 @@ input {
   background: #2c3e7a;
   padding: 24px;
   color: white;
+}
+
+.catalogue-header h2 {
+  font-size: 24px;
+}
+
+.catalogue-header p {
+  font-size: 13px;
+  color: #aac;
+  margin-top: 4px;
+}
+
+.catalogue-actions {
+  max-width: 860px;
+  margin: 24px auto 0;
+  padding: 0 24px;
+}
+
+.register-tutor-btn {
+  background: #2c3e7a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.register-tutor-btn:hover {
+  background: #243268;
+}
+
+/* TUTOR FORM */
+.tutor-form-wrap {
+  max-width: 600px;
+  margin: 24px auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 28px;
+}
+
+.tutor-form-wrap h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.tutor-form-wrap p {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+/* RATE INPUT WITH $ AND /hr */
+.input-prefix-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.input-prefix, .input-suffix {
+  background: #f0f0f0;
+  padding: 9px 10px;
+  font-size: 14px;
+  color: #555;
+  white-space: nowrap;
+}
+
+.input-with-prefix {
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.input-with-prefix:focus {
+  outline: 2px solid #2c3e7a;
+}
+
+/* TUTOR CARDS */
+#tutor-list {
+  max-width: 860px;
+  margin: 24px auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tutor-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.tutor-card:hover {
+  border-color: #2c3e7a;
+}
+
+.tutor-avatar {
+  flex-shrink: 0;
+}
+
+.tutor-avatar img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.avatar-placeholder {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #2c3e7a;
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tutor-info {
+  flex: 1;
+}
+
+.tutor-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.subj {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.meta {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+.tutor-about {
+  font-size: 13px;
+  color: #666;
+  max-width: 560px;
+  line-height: 1.5;
+}
+
+.tutor-right {
+  text-align: right;
+  flex-shrink: 0;
+  margin-left: 20px;
+}
+
+.tutor-rate {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2c3e7a;
+}
+
+.tutor-rate small {
+  font-size: 12px;
+  font-weight: 400;
+  color: #888;
 }
 
 .empty-state {

@@ -1,0 +1,107 @@
+const SUPABASE_URL = 'https://ydqaxuksntfpfehvagwz.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlkcWF4dWtzbnRmcGZlaHZhZ3d6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwMzA0OTEsImV4cCI6MjA5NzYwNjQ5MX0.FhKOQMIzZFZrfR5GCwjQhtzkMk32sh7SY_pFsKHXsOQ';
+
+const { createClient } = supabase;
+const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+let currentUser = null;
+
+// --- USER FUNCTIONS ---
+
+async function dbCreateUser(name, email, password) {
+  const { data: existing } = await db
+    .from('users')
+    .select('user_id')
+    .eq('email', email);
+
+  if (existing && existing.length > 0) return { success: false, error: 'An account with this email already exists.' };
+
+  const { data, error } = await db
+    .from('users')
+    .insert([{ name, email, password }])
+    .select();
+
+  if (error) return { success: false, error: error.message };
+
+  const user = data[0];
+  currentUser = { id: user.user_id, name: user.name, email: user.email };
+  sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+  return { success: true };
+}
+
+async function dbSignIn(email, password) {
+  const { data, error } = await db
+    .from('users')
+    .select('user_id, name, email')
+    .eq('email', email)
+    .eq('password', password);
+
+  if (error || !data || data.length === 0) return { success: false, error: 'Incorrect email or password.' };
+
+  const user = data[0];
+  console.log('user from db:', user);
+  currentUser = { id: user.user_id, name: user.name, email: user.email };
+  sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+  return { success: true };
+}
+
+function dbSignOut() {
+  currentUser = null;
+  sessionStorage.removeItem('currentUser');
+}
+
+function dbGetCurrentUser() {
+  if (currentUser) return currentUser;
+  const stored = sessionStorage.getItem('currentUser');
+  if (stored) {
+    currentUser = JSON.parse(stored);
+    return currentUser;
+  }
+  return null;
+}
+
+// --- TUTOR FUNCTIONS ---
+
+async function dbUploadAvatar(file) {
+  const filename = Date.now() + '-' + file.name;
+
+  const { error } = await db.storage
+    .from('avatars')
+    .upload(filename, file);
+
+  if (error) return { success: false, error: error.message };
+
+  const { data } = db.storage
+    .from('avatars')
+    .getPublicUrl(filename);
+
+  return { success: true, url: data.publicUrl };
+}
+
+async function dbAddTutor(profile) {
+  const { error } = await db
+    .from('tutors')
+    .insert([profile]);
+
+  if (error) return { success: false, error: error.message };
+  return { success: true };
+}
+
+async function dbGetTutors() {
+  const { data, error } = await db
+    .from('tutors')
+    .select('*');
+
+  if (error) return [];
+  return data;
+}
+
+async function dbGetMyTutorProfile(userId) {
+  const { data, error } = await db
+    .from('tutors')
+    .select('*')
+    .eq('user_id', userId);
+
+  if (error || !data || data.length === 0) return null;
+  return data[0];
+}

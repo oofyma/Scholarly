@@ -3,12 +3,13 @@
 <head>
   <title>Catalogue</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
 <nav>
   <div class="logo">Scholarly</div>
-  <div>
+  <div id="nav-links">
     <a href="index.html">Home</a>
     <a href="signin.html">Sign in</a>
     <a href="catalogue.html">Browse tutors</a>
@@ -20,9 +21,56 @@
   <p>Browse all available tutors</p>
 </div>
 
-<div class="empty-state">
-  No tutors yet.
+<div class="catalogue-actions">
+  <button class="register-tutor-btn" id="register-tutor-btn" onclick="toggleTutorForm()" style="display:none">
+    + Register as a tutor
+  </button>
 </div>
 
+<div class="tutor-form-wrap" id="tutor-form" style="display:none">
+  <h3>Register as a tutor</h3>
+  <p>Fill in your details to advertise your services on Scholarly.</p>
+
+  <label>Full name</label>
+  <input type="text" id="t-name">
+
+  <label>Subjects (e.g. Maths, English)</label>
+  <input type="text" id="t-subjects">
+
+  <label>Hourly rate (AUD per hour)</label>
+  <div class="input-prefix-wrap">
+    <span class="input-prefix">$</span>
+    <input type="number" id="t-rate" class="input-with-prefix" min="0" placeholder="e.g. 60">
+    <span class="input-suffix">/hr</span>
+  </div>
+
+  <label>Location</label>
+  <input type="text" id="t-location" placeholder="e.g. Sydney, NSW">
+
+  <label>Teaching format</label>
+  <select id="t-format">
+    <option value="Online">Online</option>
+    <option value="In-person">In-person</option>
+    <option value="Both">Both</option>
+  </select>
+
+  <label>About you</label>
+  <textarea id="t-about" rows="4" placeholder="Describe your experience, teaching style, and what you offer..."></textarea>
+
+  <label>Profile picture or logo (optional)</label>
+  <input type="file" id="t-avatar" accept="image/*">
+
+  <div id="tutor-error" style="color:red; font-size:13px; margin-bottom:10px; display:none;"></div>
+
+  <button class="signin-btn" onclick="submitTutorProfile()">Submit profile</button>
+  <button class="cancel-btn" onclick="toggleTutorForm()">Cancel</button>
+</div>
+
+<div id="tutor-list">
+  <div class="empty-state" id="empty-state">No tutors yet.</div>
+</div>
+
+<script src="db.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

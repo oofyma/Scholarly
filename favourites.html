@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tutor Profile — 🤺Tutorial</title>
+  <title>Favourites — 🤺Tutorial</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
@@ -16,8 +16,13 @@
   </div>
 </nav>
 
-<div id="profile-content">
-  <p style="text-align:center; padding:60px; color:#aaa;">Loading...</p>
+<div class="catalogue-header">
+  <h2>My favourites</h2>
+  <p>Tutors you have saved</p>
+</div>
+
+<div id="favourites-list">
+  <div class="empty-state" id="fav-empty">Loading...</div>
 </div>
 
 <script src="db.js"></script>

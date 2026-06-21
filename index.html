@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tutorial</title>
+  <title>🤺Tutorial</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
 <nav>
-  <div class="logo">Tutorial</div>
+  <a href="index.html" class="logo-link"><div class="logo">🤺Tutorial</div></a>
   <div id="nav-links">
     <a href="index.html">Home</a>
     <a href="signin.html">Sign in</a>
@@ -18,8 +18,47 @@
 
 <div class="hero">
   <h1>Find a tutor that fits</h1>
-  <p>Tutorial connects students and parents with tutors.</p>
-  <a class="hero-btn" href="catalogue.html">Browse tutors →</a>
+  <p>Tutorial connects students and parents with tutors across every subject.</p>
+  <a class="hero-btn" id="cta-btn" href="signin.html">Get started →</a>
+</div>
+
+<div class="home-features">
+  <div class="feature-card">
+    <div class="feature-icon">🔍</div>
+    <h3>Search & filter</h3>
+    <p>Find tutors by name, subject, price, and teaching format all in one place.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">📋</div>
+    <h3>Detailed profiles</h3>
+    <p>Every tutor lists their subjects, availability, location, rates, and experience.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">⭐</div>
+    <h3>Save favourites</h3>
+    <p>Star tutors you like and keep them in your personal favourites list.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">💬</div>
+    <h3>Read reviews</h3>
+    <p>See what other students say about tutors before you reach out.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">📞</div>
+    <h3>Contact directly</h3>
+    <p>No middleman — get the tutor's contact details and reach out yourself.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🎓</div>
+    <h3>List your services</h3>
+    <p>Are you a tutor? Create a free profile and start getting discovered today.</p>
+  </div>
+</div>
+
+<div class="home-cta">
+  <h2>Are you a tutor?</h2>
+  <p>Create a free profile and reach students looking for exactly what you offer.</p>
+  <a class="hero-btn" id="cta-btn-2" href="signin.html">Get started →</a>
 </div>
 
 <script src="db.js"></script>

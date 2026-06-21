@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Catalogue — Tutorial</title>
+  <title>Catalogue — 🤺Tutorial</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
 <nav>
-  <div class="logo">Tutorial</div>
+  <a href="index.html" class="logo-link"><div class="logo">🤺Tutorial</div></a>
   <div id="nav-links">
     <a href="index.html">Home</a>
     <a href="signin.html">Sign in</a>
@@ -22,14 +22,42 @@
 </div>
 
 <div class="catalogue-actions">
-  <button class="register-tutor-btn" id="register-tutor-btn" onclick="toggleTutorForm()" style="display:none">
-    + Register as a tutor
-  </button>
+  <div class="catalogue-actions-left">
+    <button class="register-tutor-btn" id="register-tutor-btn" onclick="toggleTutorForm()" style="display:none">
+      + Register as a tutor
+    </button>
+    <button class="secondary-btn" id="view-tutor-btn" onclick="viewMyTutorProfile()" style="display:none">
+      View your tutor profile
+    </button>
+  </div>
+</div>
+
+<div class="search-filter-bar">
+  <input type="text" id="search-input" placeholder="Search by any keywords..." oninput="applyFilters()">
+  <select id="filter-format" onchange="applyFilters()">
+    <option value="">All formats</option>
+    <option value="Online">Online</option>
+    <option value="In-person">In-person</option>
+    <option value="Both online and in person">Both online and in person</option>
+  </select>
+  <div class="price-range-wrap">
+    <span class="price-range-label">$</span>
+    <input type="number" id="filter-price-min" placeholder="Min" min="0" oninput="applyFilters()" class="price-input">
+    <span class="price-range-label">–</span>
+    <input type="number" id="filter-price-max" placeholder="Max" min="0" oninput="applyFilters()" class="price-input">
+    <span class="price-range-label">/hr</span>
+  </div>
+  <select id="filter-sort" onchange="applyFilters()">
+    <option value="">Sort: Default</option>
+    <option value="price-asc">Price: Low to high</option>
+    <option value="price-desc">Price: High to low</option>
+  </select>
+  <button class="clear-btn" onclick="clearFilters()">Clear</button>
 </div>
 
 <div class="tutor-form-wrap" id="tutor-form" style="display:none">
   <h3 id="tutor-form-title">Register as a tutor</h3>
-  <p>Fill in your details to advertise your services on Tutorial.</p>
+  <p>Fill in your details to advertise your services on 🤺Tutorial.</p>
 
   <label>Full name</label>
   <input type="text" id="t-name">
@@ -57,7 +85,7 @@
     <option value="Both online and in person">Both online and in person</option>
   </select>
 
-  <label>Availability (e.g. Weekday evenings, weekends)</label>
+  <label>Availability</label>
   <input type="text" id="t-availability" placeholder="e.g. Mon–Fri after 4pm, weekends">
 
   <label>Contact details</label>

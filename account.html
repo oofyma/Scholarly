@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Account — Tutorial</title>
+  <title>My Account — 🤺Tutorial</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
 <nav>
-  <div class="logo">Tutorial</div>
+  <a href="index.html" class="logo-link"><div class="logo">🤺Tutorial</div></a>
   <div id="nav-links">
     <a href="index.html">Home</a>
     <a href="catalogue.html">Browse tutors</a>
@@ -17,25 +17,18 @@
 </nav>
 
 <div class="account-wrap">
-
   <h2>My account</h2>
   <p style="color:#888; font-size:13px; margin-bottom:28px;">Manage your account details</p>
 
-  <!-- Account details -->
   <div class="account-section">
     <h3>Account details</h3>
-
     <label>Full name</label>
     <input type="text" id="a-name">
-
     <label>Email</label>
     <input type="email" id="a-email">
-
     <label>New password (leave blank to keep current)</label>
     <input type="password" id="a-password" placeholder="••••••••">
-
     <div id="account-msg" style="font-size:13px; margin-bottom:10px; display:none;"></div>
-
     <button class="signin-btn" onclick="saveAccountChanges()">Save changes</button>
   </div>
 
@@ -44,7 +37,6 @@
     <p>This will permanently delete your account and tutor profile if you have one.</p>
     <button class="danger-btn" onclick="confirmDeleteAccount()">Delete my account</button>
   </div>
-
 </div>
 
 <script src="db.js"></script>

@@ -21,20 +21,41 @@
   <p style="color:#888; font-size:13px; margin-bottom:28px;">Manage your account details</p>
 
   <div class="account-section">
-    <h3>Account details</h3>
+    <h3>Change name</h3>
     <label>Full name</label>
     <input type="text" id="a-name">
-    <label>Email</label>
-    <input type="email" id="a-email">
-    <label>New password (leave blank to keep current)</label>
-    <input type="password" id="a-password" placeholder="••••••••">
-    <div id="account-msg" style="font-size:13px; margin-bottom:10px; display:none;"></div>
-    <button class="signin-btn" onclick="saveAccountChanges()">Save changes</button>
+    <div id="name-msg" style="font-size:13px; margin-bottom:10px; display:none;"></div>
+    <button class="signin-btn" onclick="saveName()">Save name</button>
+  </div>
+
+  <div class="account-section">
+    <h3>Change email</h3>
+    <label>Current email</label>
+    <input type="email" id="a-email-current" disabled style="background:#f0f0f0; color:#888;">
+    <label>New email address</label>
+    <input type="email" id="a-email-new" placeholder="Enter new email">
+    <div id="email-msg" style="font-size:13px; margin-bottom:10px; display:none;"></div>
+    <button class="signin-btn" onclick="saveEmail()">Update email</button>
+  </div>
+
+  <div class="account-section">
+    <h3>Change password</h3>
+    <label>Current password</label>
+    <input type="password" id="a-password-current" placeholder="••••••••">
+    <label>New password</label>
+    <input type="password" id="a-password-new" placeholder="At least 6 characters">
+    <label>Confirm new password</label>
+    <input type="password" id="a-password-confirm" placeholder="Repeat new password">
+    <div id="password-msg" style="font-size:13px; margin-bottom:10px; display:none;"></div>
+    <button class="signin-btn" onclick="savePassword()">Change password</button>
   </div>
 
   <div class="danger-section">
     <h3>Delete account</h3>
-    <p>This will permanently delete your account and tutor profile if you have one.</p>
+    <p>This will permanently delete your account and tutor profile if you have one. This cannot be undone.</p>
+    <label>Enter your password to confirm</label>
+    <input type="password" id="a-delete-password" placeholder="••••••••">
+    <div id="delete-msg" style="font-size:13px; margin-bottom:10px; display:none;"></div>
     <button class="danger-btn" onclick="confirmDeleteAccount()">Delete my account</button>
   </div>
 </div>

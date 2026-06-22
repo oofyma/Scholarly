@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notifications — 🤺Tutorial</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo-link"><div class="logo">🤺Tutorial</div></a>
+  <div id="nav-links">
+    <a href="index.html">Home</a>
+    <a href="signin.html">Sign in</a>
+    <a href="catalogue.html">Browse tutors</a>
+  </div>
+</nav>
+
+<div class="catalogue-header">
+  <h2>Notifications</h2>
+  <p>Replies, liked comments, and your activity</p>
+</div>
+
+<div class="notifications-page-wrap">
+  <div class="notif-section">
+    <div class="notif-section-title">🔔 Replies & activity</div>
+    <div id="notif-replies">
+      <div class="empty-state" style="padding:24px;">Loading...</div>
+    </div>
+  </div>
+
+  <div class="notif-section">
+    <div class="notif-section-title">👍 Comments you liked</div>
+    <div id="notif-liked">
+      <div class="empty-state" style="padding:24px;">Loading...</div>
+    </div>
+  </div>
+
+  <div class="notif-section">
+    <div class="notif-section-title">💬 Your comments & replies</div>
+    <div id="notif-own">
+      <div class="empty-state" style="padding:24px;">Loading...</div>
+    </div>
+  </div>
+</div>
+
+<script src="db.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -51,11 +51,14 @@ nav a:hover {
   color: white;
 }
 
-/* Active-style for account and sign out */
-#nav-links a[href="account.html"],
-#nav-links a[href*="account"] {
-  background: rgba(255,255,255,0.1);
+.notif-count {
+  background: #ef4444;
   color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 10px;
+  margin-left: 4px;
 }
 
 /* HOME */
@@ -67,7 +70,6 @@ nav a:hover {
 }
 
 .hero h1 { font-size: 34px; margin-bottom: 12px; font-weight: 700; }
-
 .hero p { font-size: 16px; color: #b0bcda; margin-bottom: 32px; }
 
 .hero-btn {
@@ -103,9 +105,7 @@ nav a:hover {
 }
 
 .feature-icon { font-size: 28px; margin-bottom: 10px; }
-
 .feature-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: #1e2d5f; }
-
 .feature-card p { font-size: 13px; color: #666; line-height: 1.6; }
 
 .home-cta {
@@ -117,7 +117,6 @@ nav a:hover {
 }
 
 .home-cta h2 { font-size: 26px; margin-bottom: 10px; font-weight: 700; }
-
 .home-cta p { font-size: 15px; color: #b0bcda; margin-bottom: 24px; }
 
 /* SIGN IN */
@@ -132,7 +131,6 @@ nav a:hover {
 }
 
 .signin-wrap h2 { font-size: 22px; margin-bottom: 6px; font-weight: 700; color: #1e2d5f; }
-
 .signin-wrap p { font-size: 13px; color: #888; margin-bottom: 24px; }
 
 label {
@@ -240,7 +238,6 @@ input:focus, select:focus, textarea:focus {
 }
 
 .catalogue-header h2 { font-size: 24px; font-weight: 700; }
-
 .catalogue-header p { font-size: 13px; color: #b0bcda; margin-top: 4px; }
 
 .catalogue-actions {
@@ -327,8 +324,6 @@ input:focus, select:focus, textarea:focus {
   background: white;
 }
 
-.price-input:focus { outline: none; }
-
 /* TUTOR FORM */
 .tutor-form-wrap {
   max-width: 600px;
@@ -398,7 +393,6 @@ input:focus, select:focus, textarea:focus {
   box-shadow: 0 3px 12px rgba(44,62,122,0.12);
 }
 
-/* AVATAR */
 .tutor-avatar-wrap {
   flex-shrink: 0;
   display: flex;
@@ -428,7 +422,6 @@ input:focus, select:focus, textarea:focus {
   justify-content: center;
 }
 
-/* REVIEW BADGE */
 .review-badge {
   background: #1e2d5f;
   color: white;
@@ -441,13 +434,9 @@ input:focus, select:focus, textarea:focus {
 }
 
 .tutor-info { flex: 1; }
-
 .tutor-info h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: #1e2d5f; }
-
 .you-tag { font-size: 12px; font-weight: 400; color: #2c3e7a; }
-
 .tutor-field { font-size: 13px; color: #555; margin-bottom: 4px; }
-
 .field-label { font-weight: 600; color: #333; }
 
 .tutor-right {
@@ -461,9 +450,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .tutor-rate { font-size: 20px; font-weight: 700; color: #1e2d5f; }
-
 .tutor-rate small { font-size: 12px; font-weight: 400; color: #888; }
-
 .view-profile-link { font-size: 12px; color: #2c3e7a; font-weight: 500; }
 
 .star-btn {
@@ -488,13 +475,26 @@ input:focus, select:focus, textarea:focus {
   font-size: 14px;
   cursor: pointer;
   color: #555;
-  margin-left: auto;
   white-space: nowrap;
   transition: all 0.15s;
 }
 
 .star-btn-large.fav { color: #f59e0b; border-color: #f59e0b; }
 .star-btn-large:hover { border-color: #f59e0b; color: #f59e0b; }
+
+.report-btn-large {
+  background: none;
+  border: 1.5px solid #fca5a5;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #dc2626;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+
+.report-btn-large:hover { background: #fff0f0; }
 
 .empty-state { text-align: center; padding: 80px 24px; color: #aaa; }
 
@@ -657,13 +657,22 @@ input:focus, select:focus, textarea:focus {
   flex-wrap: wrap;
 }
 
-.review-header-right { flex-shrink: 0; }
+.review-header-right {
+  flex-shrink: 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
 
 .review-name { font-size: 14px; font-weight: 600; color: #1e2d5f; }
-
 .review-date { font-size: 12px; color: #aaa; }
-
 .review-comment { font-size: 14px; color: #444; line-height: 1.6; margin-bottom: 8px; }
+
+.edited-tag {
+  font-size: 11px;
+  color: #aaa;
+  font-style: italic;
+}
 
 /* VOTE SYSTEM */
 .review-actions {
@@ -711,18 +720,24 @@ input:focus, select:focus, textarea:focus {
 .vote-score.positive { color: #ff4500; }
 .vote-score.negative { color: #7193ff; }
 
-.delete-review-btn {
+/* EDIT / DELETE / REPORT BUTTONS */
+.edit-review-btn, .delete-review-btn, .report-btn {
   background: none;
   border: none;
   font-size: 12px;
-  color: #ccc;
+  color: #aaa;
   cursor: pointer;
   padding: 0;
   transition: color 0.15s;
 }
 
+.edit-review-btn:hover { color: #2c3e7a; }
 .delete-review-btn:hover { color: #dc2626; }
+.report-btn:hover { color: #dc2626; }
 
+.edit-box { margin-top: 8px; }
+
+/* TUTOR TAG */
 .tutor-tag {
   background: #1e2d5f;
   color: white;
@@ -765,7 +780,6 @@ input:focus, select:focus, textarea:focus {
 }
 
 .toggle-replies-btn:hover { text-decoration: underline; }
-
 .replies-container { margin-top: 4px; }
 
 .review-form {
@@ -776,7 +790,6 @@ input:focus, select:focus, textarea:focus {
 
 .review-form h4 { font-size: 14px; font-weight: 600; margin-bottom: 10px; color: #333; }
 .review-form textarea { margin-bottom: 10px; }
-
 .no-reviews-msg { color: #aaa; font-size: 14px; padding: 12px 0; }
 
 .review-signin-note {
@@ -788,6 +801,36 @@ input:focus, select:focus, textarea:focus {
 }
 
 .review-signin-note a { color: #2c3e7a; }
+
+/* NOTIFICATIONS */
+.notifications-wrap {
+  max-width: 700px;
+  margin: 28px auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notif-item {
+  background: white;
+  border: 1px solid #dde2f0;
+  border-radius: 10px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.notif-item:hover { border-color: #2c3e7a; }
+
+.notif-item.unread {
+  border-left: 4px solid #2c3e7a;
+  background: #f0f4ff;
+}
+
+.notif-message { font-size: 14px; color: #333; margin-bottom: 4px; font-weight: 500; }
+.notif-date { font-size: 12px; color: #aaa; }
 
 /* ACCOUNT PAGE */
 .account-wrap {
@@ -818,5 +861,64 @@ input:focus, select:focus, textarea:focus {
 }
 
 .danger-section h3 { font-size: 16px; font-weight: 600; color: #dc2626; margin-bottom: 8px; }
-
 .danger-section p { font-size: 13px; color: #888; margin-bottom: 16px; }
+
+/* NOTIFICATIONS PAGE */
+.notifications-page-wrap {
+  max-width: 700px;
+  margin: 28px auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.notif-section {
+  background: white;
+  border: 1px solid #dde2f0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.notif-section-title {
+  background: #f0f4ff;
+  border-bottom: 1px solid #dde2f0;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e2d5f;
+  letter-spacing: 0.3px;
+}
+
+.notif-item {
+  padding: 14px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f2f8;
+  transition: background 0.15s;
+}
+
+.notif-item:last-child { border-bottom: none; }
+
+.notif-item:hover { background: #f7f9ff; }
+
+.notif-item.unread {
+  border-left: 4px solid #2c3e7a;
+  background: #f0f4ff;
+}
+
+.notif-item.unread:hover { background: #e8eeff; }
+
+.notif-message { font-size: 14px; color: #333; margin-bottom: 4px; }
+.notif-date { font-size: 12px; color: #aaa; }
+
+/* HIGHLIGHT on scroll-to */
+.highlight-review {
+  animation: highlightPulse 2.5s ease;
+}
+
+@keyframes highlightPulse {
+  0% { background: #fff9c4; }
+  60% { background: #fff9c4; }
+  100% { background: transparent; }
+}

@@ -465,7 +465,7 @@ async function initProfile() {
 
   if (currentUser) userVotes = await dbGetUserVotes(currentUser.id);
 
-  document.title = t.name + ' — 🤺Tutorial';
+  document.title = t.name + ' - 🤺Tutorial';
 
   const reviews = await dbGetReviews(tutorId);
   const sorted = sortReviews(reviews, reviewSortMode);
